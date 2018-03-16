@@ -20,8 +20,8 @@ JINJA_FILTERS = { 'sidebar': filters.sidebar }
 
 PATH = 'content'
 
-THEME = "themes/custom_fresh"
-#THEME = "themes/twenty"
+#THEME = "themes/custom_fresh"
+THEME = "themes/twenty"
 PLUGIN_PATHS=["./plugins"]
 PLUGINS = ["render_math.math"]
 
@@ -31,14 +31,6 @@ CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
-
-USE_FOLDER_AS_CATEGORY = True
-
-MENUITEMS = [("Papers","/papers.html"),]
-#DISPLAY_PAGES_ON_MENU = True
-#MENUITEMS = [("Papers","/papers.html"),("Sign up!","/signup.html"),]
-#TEMPLATE_PAGES = {'papers.html' : 'papers.html' }
-#DISPLAY_CATEGORIES_ON_MENU = False
 
 # Blogroll
 #LINKS = (('Pelican', 'http://getpelican.com/'),
@@ -50,7 +42,54 @@ MENUITEMS = [("Papers","/papers.html"),]
 #SOCIAL = (('You can add links in your config file', '#'),
 #          ('Another social link', '#'),)
 
-DEFAULT_PAGINATION = False
+DEFAULT_PAGINATION = 3
+POST_LIMIT = 3
+
+# Show most recent posts first
+NEWEST_FIRST_ARCHIVES = True
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
+
+MENUITEMS = [("News", "news.html"), ("Articles", "articles.html"), ("Papers", "papers.html")]
+#TEMPLATE_PAGES = {'/themes/twenty/templates/page.html' : 'papers.html' }
+
+# Formatting for urls
+ARTICLE_PATHS = ['content/Articles/']
+ARTICLE_URL = "{slug}"
+ARTICLE_SAVE_AS = "Articles/{slug}.html"
+
+#ARCHIVES_URL = "blog"
+#ARCHIVES_SAVE_AS = "blog/index.html"
+
+PAGE_PATHS = ['content/Pages/']
+PAGE_URL = '{slug}'
+PAGE_SAVE_AS = '{slug}.html'
+
+#CATEGORY_URL = "category/{slug}/"
+#CATEGORY_SAVE_AS = "category/{slug}/index.html"
+
+TAG_URL = "tag/{slug}/"
+TAG_SAVE_AS = "tag/{slug}.html"
+
+USE_FOLDER_AS_CATEGORY = True
+
+
+#DISPLAY_PAGES_ON_MENU = True
+#DISPLAY_CATEGORIES_ON_MENU = True
+
+# Generate yearly archive
+#YEAR_ARCHIVE_SAVE_AS = 'blog/{date:%Y}/index.html'
+
+# Formatting for dates
+DEFAULT_DATE_FORMAT = ('%d-%m-%Y')
+
+STATIC_PATHS = ['images',
+                'fonts',
+                'css',
+                'js',
+                ]
+
+import datetime
+now = datetime.datetime.utcnow()
+YEAR = now.strftime("%Y")
