@@ -55,7 +55,7 @@ MENUITEMS = [("News", "news.html"), ("Articles", "articles.html"), ("Papers", "p
 #TEMPLATE_PAGES = {'/themes/twenty/templates/page.html' : 'papers.html' }
 
 # Formatting for urls
-ARTICLE_PATHS = ['content/Articles/']
+ARTICLE_PATHS = ['Articles', 'News']
 ARTICLE_URL = "{slug}"
 ARTICLE_SAVE_AS = "Articles/{slug}.html"
 
