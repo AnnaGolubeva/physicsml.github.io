@@ -15,6 +15,87 @@
     text with <a href="http://html5up.net/license">link</a> text!</p>
   </header>
 
+  <style>
+    .content .news {
+       background-color: white;
+       border-radius: 15px;
+    }
+    .newscontainer {
+        display: flex;
+        flex-direction: row;
+    }
+    .newscontainer .calender{
+        width: 100px;
+        flex-shrink: 0;
+    }
+    .newscontainer .calender .date{
+        width: 80px;
+        height: 80px;
+        text-align: center;
+        border: 2px solid grey;
+        margin-top:20px;
+    }
+    .newscontainer .newsteaser{
+        flex-grow: 1;
+    }
+
+  </style>
+
+
+<section class="wrapper style4 container special-alt"> <!--  -->
+    <header>
+        <h2><strong>News</strong></h2>
+    </header>
+    <div class="8u">
+            <div class="content">
+            {% for article in articles %}
+              {% if article.category|string() == "News"|string() %}
+                <div class="newscontainer">
+                    <div class="calender">
+                         <div class="date">{{ article.date | strftime('%d %b') }}</div>
+                    </div>
+                    <!-- <a href="#" class="image feature"><img src="images/pic03.jpg" alt="" /></a> -->
+                   <div class="newsteaser">
+                      <header>
+                          <a href="{{ SITEURL }}/{{ article.url }}"><h3>{{ article.title }}</h3></a>
+                      </header>
+                      <p>{{ article.summary |striptags }}</p>
+                   </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+            </div>
+        </div>
+</section>
+
+
+
+<section class="wrapper style1 container special-alt"> <!--  -->
+    <header>
+        <h2><strong>News</strong></h2>
+    </header>
+    <div class="8u">
+            <div class="content">
+            {% for article in articles %}
+              {% if article.category|string() == "News"|string() %}
+                <div class="newscontainer">
+                    <div class="calender">
+                            {{ article.date | strftime('%d %b') }}
+                    </div>
+                    <!-- <a href="#" class="image feature"><img src="images/pic03.jpg" alt="" /></a> -->
+                   <div class="newsteaser">
+                      <header>
+                          <a href="{{ SITEURL }}/{{ article.url }}"><h3>{{ article.title }}</h3></a>
+                      </header>
+                      <p>{{ article.summary |striptags }}</p>
+                   </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+            </div>
+        </div>
+</section>
+
 
   <section class="wrapper style2 container special-alt"> <!--  -->
     <header>
@@ -29,7 +110,7 @@
                     <header>
                         <a href="{{ SITEURL }}/{{ article.url }}"><h3>{{ article.title }}</h3></a>
                     </header>
-                    <p style="align-content: right;">{{ article.date | strftime('%d %B %Y') }}</p>
+                    <p style="text-align: right;">{{ article.date | strftime('%d %B %Y') }}</p>
                     <p>{{ article.summary |striptags }}</p>
                 </section>
                 {% endif %}
