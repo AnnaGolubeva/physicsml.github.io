@@ -10,7 +10,7 @@ LOAD_CONTENT_CACHE = False
 
 AUTHOR = u'PhysicsML'
 SITENAME = u'&#12296&nbsp;physics&nbsp;&#124;&nbsp;machine&nbsp;learning&nbsp;&#12297;'
-SITEURL = ''
+SITEURL = 'https://physicsml.github.io'
 
 TIMEZONE = 'America/New_York'
 DEFAULT_LANG = u'en'
