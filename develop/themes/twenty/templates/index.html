@@ -29,7 +29,8 @@
                     <header>
                         <a href="{{ SITEURL }}/{{ article.url }}"><h3>{{ article.title }}</h3></a>
                     </header>
-                    <p>{{ article.summary|striptags }}</p>
+                    <p style="align-content: right;">{{ article.date | strftime('%d %B %Y') }}</p>
+                    <p>{{ article.summary |striptags }}</p>
                 </section>
                 {% endif %}
             {% endfor %}
