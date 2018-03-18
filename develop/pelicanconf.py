@@ -10,7 +10,7 @@ LOAD_CONTENT_CACHE = False
 
 AUTHOR = u'PhysicsML'
 SITENAME = u'&#12296&nbsp;physics&nbsp;&#124;&nbsp;machine&nbsp;learning&nbsp;&#12297;'
-SITEURL = ''
+SITEURL = 'https://physicsml.github.io'
 
 TIMEZONE = 'America/New_York'
 DEFAULT_LANG = u'en'
@@ -62,7 +62,7 @@ ARTICLE_SAVE_AS = "Articles/{slug}.html"
 #ARCHIVES_URL = "blog"
 #ARCHIVES_SAVE_AS = "blog/index.html"
 
-PAGE_PATHS = ['content/Pages/']
+PAGE_PATHS = ['Pages']
 PAGE_URL = '{slug}'
 PAGE_SAVE_AS = '{slug}.html'
 
