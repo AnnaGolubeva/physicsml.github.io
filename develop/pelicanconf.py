@@ -62,7 +62,7 @@ ARTICLE_SAVE_AS = "Articles/{slug}.html"
 #ARCHIVES_URL = "blog"
 #ARCHIVES_SAVE_AS = "blog/index.html"
 
-PAGE_PATHS = ['content/Pages/']
+PAGE_PATHS = ['Pages']
 PAGE_URL = '{slug}'
 PAGE_SAVE_AS = '{slug}.html'
 
