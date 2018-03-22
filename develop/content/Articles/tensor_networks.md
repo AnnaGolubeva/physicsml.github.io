@@ -70,8 +70,8 @@ their optimality for a wide set of cases. MPS are even useful for two-dimensiona
 systems with extra computational effort.
 
 Inspired by the success of the MPS tensor network, other tensor network proposals
-followed, such as the PEPS network for two-dimensional quantum systems ([Verstraete,2004][11])
-and the MERA network for critical systems ([Vidal,2007][12]). Both of these are trickier to use than
+followed, such as the PEPS network for two-dimensional quantum systems ([Verstraete, 2004][11])
+and the MERA network for critical systems ([Vidal, 2007][12]). Both of these are trickier to use than
 MPS, but offer a more compression, and in the case of MERA, deeper physics insights.
 
 ## Tensor network machines
@@ -79,31 +79,31 @@ MPS, but offer a more compression, and in the case of MERA, deeper physics insig
 High-dimensional spaces pop up everywhere in machine learning theory. So tensor 
 networks seem a natural tool to try (with benefit of hindsight, of course). 
 There have already been creative proposals to use MPS
-(also known as *tensor trains*) to parameterize Bayesian models ([Novikov,2014][15]); to perform PCA/SVD
-analysis of huge matrices ([Lee,2014][16]); to extract useful features from data tensors ([Bengua,2015][20]); and to parameterize neural net layers ([Novikov,2015][17]).
+(also known as *tensor trains*) to parameterize Bayesian models ([Novikov, 2014][15]); to perform PCA/SVD
+analysis of huge matrices ([Lee, 2014][16]); to extract useful features from data tensors ([Bengua, 2015][20]); and to parameterize neural net layers ([Novikov, 2015][17]).
 
 But which machine learning framework is most natural for tensor 
 networks, in the sense of applying the full power of optimization techniques, insights, and generalizations
 of MPS developed in physics?
 
 Two recent papers propose that tensor networks could be especially powerful 
- in the setting of non-linear kernel learning: [Novikov,Trofimov,Oseledets (2016)][18] and [Stoudenmire,Schwab (2016)][19].
+ in the setting of non-linear kernel learning: [Novikov, Trofimov, Oseledets (2016)][18] and [Stoudenmire, Schwab (2016)][19].
 Kernel learning basically means optimizing a decision function of the form
 $$
 f(\mathbf{x}) = W\cdot\Phi(\mathbf{x})
 $$
-where @@\mathbf{x}@@ is a moderate-size vector of inputs (e.g. pixels of an image) and the output
-@@f(\mathbf{x})@@ determines how to classify each input. 
+where $\mathbf{x}$ is a moderate-size vector of inputs (e.g. pixels of an image) and the output
+$f(\mathbf{x})$ determines how to classify each input. 
 
-The function @@\Phi(\mathbf{x})@@ is known as the *feature map*. Its role is to "lift" 
-inputs @@\mathbf{x}@@ to a higher dimensional *feature space* before they are classified. 
-The feature map @@\Phi@@ is a non-linear yet rather generic and simple function, in the sense of having only a few
+The function $\Phi(\mathbf{x})$ is known as the *feature map*. Its role is to "lift" 
+inputs $\mathbf{x}$ to a higher dimensional *feature space* before they are classified. 
+The feature map $\Phi$ is a non-linear yet rather generic and simple function, in the sense of having only a few
 adjustable "hyper parameters" (a common example of a feature map is the one associated with the [polynomial kernel][22]).
 
-The weight vector @@W@@ contain the actual parameters of the model to be learned. The clever thing about
-kernel learning is although the inputs enter non-linearly via the feature map @@\Phi@@, the
-weights @@W@@ enter *linearly* &mdash; the model is just a linear classifier in feature space. 
-The number of weights is determined by the dimensionality of the feature space (the target space of @@\Phi@@).
+The weight vector $W$ contain the actual parameters of the model to be learned. The clever thing about
+kernel learning is although the inputs enter non-linearly via the feature map $\Phi$, the
+weights $W$ enter *linearly* &mdash; the model is just a linear classifier in feature space. 
+The number of weights is determined by the dimensionality of the feature space (the target space of $\Phi$).
 A higher-dimensional feature space can produce a more powerful model, but also requires 
 optimizing more weights. In some common approaches, the number of weight parameters
 to optimize can be exponentially big or even infinite.
@@ -116,13 +116,13 @@ To obtain a weight vector with a structure like a quantum wavefunction, and
 suitable for the tensor network approximations used in physics,
 recall that combining independent quantum systems corresponds to taking a tensor
 product of their state spaces. For a feature map mimicking this rule,
-first map each component @@x\_j@@ of the input vector @@\mathbf{x}@@ into a
-small d-dimensional vector via a *local feature map* @@\phi(x\_j)@@. Then
+first map each component $x_j$ of the input vector $\mathbf{x}$ into a
+small d-dimensional vector via a *local feature map* $\phi(x\_j)$. Then
 combine these local feature vectors using a tensor product:
 $$
 \Phi^{s\_1 s\_2 \cdots s\_N}(\mathbf{x}) = \phi^{s\_1}(x\_1) \otimes \phi^{s\_2}(x\_2) \otimes \cdots \otimes \phi^{s\_N}(x\_N)
 $$
-The result is a @@d^N@@ dimensional feature vector. However, it has the structure
+The result is a $d^N$ dimensional feature vector. However, it has the structure
 of a product-state wavefunction (or rank-1 tensor in applied math parlance), making it
 easy to store and manipulate.
 
@@ -131,8 +131,8 @@ easy to store and manipulate.
 <figcaption>Feature map as a tensor product of local feature maps</figcaption>
 </figure>
 
-With the above construction, @@W@@ also has @@d^N@@ components, and has the structure of an
-@@N^\text{th}@@ order tensor (N indices of size d). This is an object in the same
+With the above construction, $W$ also has $d^N$ components, and has the structure of an
+$N^\text{th}$ order tensor (N indices of size d). This is an object in the same
 mathematical space as a wavefunction of N spins (d=2 corresponding to S=1/2, d=3 to S=1, etc.).
 But while some wavefunctions in state space (now feature space) are readily 
 compressible into tensor networks, the vast majority cannot be compressed at all. 
@@ -148,7 +148,7 @@ In lieu of a general answer, we did an experiment. Our work ([Stoudenmire,2016][
 considered grayscale image data of handwritten digits (the MNIST data set). Taking an
 ad-hoc local feature map which maps grayscale pixels into two-component vectors mimicking
 S=1/2 spins, we trained a model to distinguish the digits 0,1,2,...,9. We approximated
-the weight tensor @@W@@ as an MPS and optimized it by minimizing a squared-error cost
+the weight tensor $W$ as an MPS and optimized it by minimizing a squared-error cost
 function. The results were surprisingly good: for a very modest
 size of 100 by 100 matrices in the MPS, we obtained over 99% classification accuracy on the
 training and test data sets. The experiments of [Novikov,2016][18] considered another
@@ -202,9 +202,7 @@ deep theoretical underpinnings of kernel learning the future could be bright.
 
 
 <br/>
-<br/>
 ****
-<br/>
 <br/>
 
 
@@ -216,33 +214,33 @@ Lifting data into a high-dimensional space to classify it is not a new idea. It 
 point for the very elegant support vector machine (SVM) method, and non-linear kernel learning
 methods more broadly.
 
-Before classifying an input data vector @@\mathbf{x}@@, kernel methods lift the vector to a higher-dimensional
-*feature space* by applying a feature map @@\Phi(\mathbf{x})@@ to them.
+Before classifying an input data vector $\mathbf{x}$, kernel methods lift the vector to a higher-dimensional
+*feature space* by applying a feature map $\Phi(\mathbf{x})$ to them.
 
-As a simple example, say the input vector is @@\mathbf{x} = (x\_1,x\_2)@@. Then we can lift this vector
+As a simple example, say the input vector is $\mathbf{x} = (x\_1,x\_2)$. Then we can lift this vector
 by defining a feature map as follows:
 $$
 \Phi(\mathbf{x}) = (1,\,x\_1,\,x\_2,\, x\_1^2 ,\,x\_2^2)
 $$
-This non-linear map takes the two-dimensional vector @@\mathbf{x}@@ into a five-dimensional vector @@\Phi(\mathbf{x})@@.
+This non-linear map takes the two-dimensional vector $\mathbf{x}$ into a five-dimensional vector $\Phi(\mathbf{x})$.
 
 We then classify our data with a decision function of the form
 $$
 f(\mathbf{x}) = W \cdot \Phi(\mathbf{x})
 $$
-which is just a linear classifier applied to the vector @@\Phi(\mathbf{x})@@.
+which is just a linear classifier applied to the vector $\Phi(\mathbf{x})$.
 It is a linear classifier in *feature space*.
 
 What have we gained? Linear classifiers are straightforward to optimize. If there is a hyperplane that
 can separate our data, it only takes a bit of linear algebra to find it. By solving a linear problem,
-we get the full power of a non-linear decision function. (@@\Phi(\mathbf{x})@@ is non-linear so
-@@f(\mathbf{x})@@ will be too.)
+we get the full power of a non-linear decision function. ($\Phi(\mathbf{x})$ is non-linear so
+$f(\mathbf{x})$ will be too.)
 
-As an example, say we need to separate all inputs @@\mathbf{x}@@ with
-@@|\mathbf{x}| < 1@@ from all other inputs with @@|\mathbf{x}| > 1@@. The decision boundary
+As an example, say we need to separate all inputs $\mathbf{x}$ with
+$|\mathbf{x}| < 1$ from all other inputs with $|\mathbf{x}| > 1$. The decision boundary
 will be a circle, which we cannot make with a plain "unlifted" linear classifier of the 
-form @@\mathbf{n} \cdot \mathbf{x}@@. But in our lifted model, by choosing @@W = (-1,0,0,1,1)@@ we obtain
-an @@f(\mathbf{x})@@ which is negative for points inside our circle and positive for points outside.
+form $\mathbf{n} \cdot \mathbf{x}$. But in our lifted model, by choosing $W = (-1,0,0,1,1)$ we obtain
+an $f(\mathbf{x})$ which is negative for points inside our circle and positive for points outside.
 
 There is a catch of course: a feature map like the example above may not be high-dimensional or 
 non-linear enough to make the data separable for the toughest problems. We can try to solve this 
@@ -256,11 +254,11 @@ by mapping to a really high dimensional space as follows:
  &\  x\_1 \cdot x\_2 \cdot x\_3 \cdot x\_4 \cdots x\_N \, )
 \end{align}
 
-The above feature map has all possible products of the components of @@\mathbf{x}@@ to all orders.
+The above feature map has all possible products of the components of $\mathbf{x}$ to all orders.
 But if you count the number of terms above,
-you will see that @@\Phi(\mathbf{x})@@ is a @@2^N@@-dimensional vector where @@N@@ is the number of entries
-of @@\mathbf{x}@@. That means the weight vector @@W@@ would need to be @@2^N@@ dimensional also. 
-There is no way to directly manipulate a vector that large once @@N@@ gets bigger than 40 or so.
+you will see that $\Phi(\mathbf{x})$ is a $2^N$-dimensional vector where $N$ is the number of entries
+of $\mathbf{x}$. That means the weight vector $W$ would need to be $2^N$ dimensional also. 
+There is no way to directly manipulate a vector that large once $N$ gets bigger than 40 or so.
 
 -->
 
