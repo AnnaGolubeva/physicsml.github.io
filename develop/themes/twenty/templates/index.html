@@ -70,18 +70,22 @@
         flex-direction: row;
     }
     .newscontainer .calender{
-        width: 100px;
+        width: 120px;
         flex-shrink: 0;
     }
     .newscontainer .calender .date{
         width: 80px;
-        height: 80px;
+        height: 60px;
         text-align: center;
         border: 2px solid grey;
-        margin-top:20px;
+        margin-top:9px;
     }
     .newscontainer .newsteaser{
         flex-grow: 1;
+    }
+    .newscontainer .newsteaser h3{
+        flex-grow: 1;
+        margin-bottom: 0.5em;
     }
     ul.thumbnail-photos {
       cursor: default;
@@ -108,13 +112,16 @@
     <header>
         <h2><strong>News</strong></h2>
     </header>
-    <div class="8u">
+    <div >
             <div class="content">
             {% for article in articles %}
               {% if article.category|string() == "News"|string() %}
                 <div class="newscontainer">
                     <div class="calender">
-                         <div class="date">{{ article.date | strftime('%d %b') }}</div>
+                        <div class="date">
+                            <div class="month"><strong>{{ article.date | strftime('%b') }}</strong></div>
+                            <div class="day">{{ article.date | strftime('%d') }}</div>
+                        </div> 
                     </div>
                     <!-- <a href="#" class="image feature"><img src="images/pic03.jpg" alt="" /></a> -->
                    <div class="newsteaser">
@@ -195,7 +202,7 @@
           <header>
             <a href="{{ SITEURL }}/{{ article.url }}" rel='bookmark'><h3>{{ article.title }}</h3></a>
           </header>
-          <p>{{ article.content[:196]|striptags }}</p>
+          <p>{{ article.content |truncate(length=196, killwords=False, end='...') |striptags }}</p>
           <footer>
               <ul class="buttons">
                   <li><a href="{{ SITEURL }}/{{ article.url }}" class="button small">Read More</a></li>
