@@ -37,13 +37,21 @@
       </div>
       <div class="4u skel-cell-important">
 
-        <ul class="feature-icons">
+        <!-- <ul class="feature-icons">
           <li><span class="image feature"><img src="images/matt.png" alt="" /></span></li>
           <li><span class="image feature"><img src="images/anna.jpg" alt="" /></span></li>
           <li><span class="icon fa-laptop"><span class="label">Laptop icon</span></span></li>
           <li><span class="icon fa-bullhorn"><span class="label">Feature 4</span></span></li>
           <li><span class="icon fa-lock"><span class="label">Feature 5</span></span></li>
           <li><span class="icon fa-cog"><span class="label">Feature 6</span></span></li>
+        </ul> -->
+        <ul class="thumbnail-photos">
+          <div class="crop"><img src="images/matt.png" alt="" /></div>
+          <div class="crop"><img src="images/matt.png" alt="" /></div>
+          <div class="crop"><img src="images/matt.png" alt="" /></div>
+          <div class="crop"><img src="images/matt.png" alt="" /></div>
+          <div class="crop"><img src="images/matt.png" alt="" /></div>
+          <div class="crop"><img src="images/matt.png" alt="" /></div>
         </ul>
 
       </div>
@@ -74,6 +82,23 @@
     }
     .newscontainer .newsteaser{
         flex-grow: 1;
+    }
+    ul.thumbnail-photos {
+      cursor: default;
+      margin: -0.75em 0 0 0;
+      overflow: hidden;
+      position: relative;
+    }
+    ul.thumbnail-photos .crop{
+        width: 120px;
+        height: 120px;
+        overflow: hidden;
+        border-radius: 60px;
+        float: left;
+        margin: 16px;
+    }
+    ul.thumbnail-photos .crop img{
+        width: 120px;
     }
 
   </style>
