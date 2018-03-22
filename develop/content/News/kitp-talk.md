@@ -1,4 +1,4 @@
-Title: "Intro to Machine Learning" Talk at KITP
+Title: Intro to Machine Learning Talk at KITP
 Date: 2016-11-09 20:00
 Tags: quantum mechanics, neural nets, machine learning
 Authors: Miles Stoudenmire

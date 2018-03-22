@@ -569,8 +569,11 @@
 
 		.wrapper.style4 {
 			background: white;
-			color: inherit;
-			padding: 4em;
+			color: inherit; /* normal text color */
+			font-size: 0.9em;
+			padding: 12em;
+			padding-top: 8em;
+			line-height: 1.4;
 		}
 
 /* Header */
