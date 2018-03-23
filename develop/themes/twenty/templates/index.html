@@ -6,60 +6,6 @@
 <!-- Main -->
 <article id="main">
 
-<!-- 
-  <header class="special container">
-    <span class="icon fa-newspaper"></span>
-    <h2>News?</h2>
-    <p>New paragraph, I guess. Text,<br />
-    text,<br />
-    text with <a href="http://html5up.net/license">link</a> text!</p>
-    
-  </header>
--->
-
-
-  <!-- One: ABOUT
-  -->
-  <section class="wrapper style2 container special-alt">
-    <div class="row half">
-      <div class="8u">
-
-        <header>
-          <h2><strong>About</strong> </h2>
-        </header>
-        <p>Melko group and friends.</p>
-        <footer>
-          <ul class="buttons">
-            <li><a href="#" class="button">Who's who</a></li>
-          </ul>
-        </footer>
-
-      </div>
-      <div class="4u skel-cell-important">
-
-        <!-- <ul class="feature-icons">
-          <li><span class="image feature"><img src="images/matt.png" alt="" /></span></li>
-          <li><span class="image feature"><img src="images/anna.jpg" alt="" /></span></li>
-          <li><span class="icon fa-laptop"><span class="label">Laptop icon</span></span></li>
-          <li><span class="icon fa-bullhorn"><span class="label">Feature 4</span></span></li>
-          <li><span class="icon fa-lock"><span class="label">Feature 5</span></span></li>
-          <li><span class="icon fa-cog"><span class="label">Feature 6</span></span></li>
-        </ul> -->
-        <ul class="thumbnail-photos">
-          <div class="crop"><img src="images/matt.png" alt="" /></div>
-          <div class="crop"><img src="images/matt.png" alt="" /></div>
-          <div class="crop"><img src="images/matt.png" alt="" /></div>
-          <div class="crop"><img src="images/matt.png" alt="" /></div>
-          <div class="crop"><img src="images/matt.png" alt="" /></div>
-          <div class="crop"><img src="images/matt.png" alt="" /></div>
-        </ul>
-
-      </div>
-    </div>
-  </section>
-
-
-
   <style>
     .content .news {
        background-color: white;
@@ -70,12 +16,12 @@
         flex-direction: row;
     }
     .newscontainer .calender{
-        width: 120px;
+        width: 80px;
         flex-shrink: 0;
     }
     .newscontainer .calender .date{
         width: 80px;
-        height: 60px;
+        height: 80px;
         text-align: center;
         border: 2px solid grey;
         margin-top:9px;
@@ -85,7 +31,7 @@
     }
     .newscontainer .newsteaser h3{
         flex-grow: 1;
-        margin-bottom: 0.5em;
+        margin-bottom: 0.15em;
     }
     ul.thumbnail-photos {
       cursor: default;
@@ -104,26 +50,70 @@
     ul.thumbnail-photos .crop img{
         width: 120px;
     }
-
   </style>
 
+<!-- 
+  <header class="special container">
+    <span class="icon fa-newspaper"></span>
+    <h2>News?</h2>
+    <p>New paragraph, I guess. Text,<br />
+    text,<br />
+    text with <a href="http://html5up.net/license">link</a> text!</p>
+    
+  </header>
+-->
 
-<section class="wrapper style4 container special-alt"> <!--  -->
-    <header>
-        <h2><strong>News</strong></h2>
-    </header>
+  <!-- One: ABOUT  -->
+  <section class="wrapper style2 container special-alt">
+    <div class="row half">
+      <div class="8u">
+
+        <header>
+          <h2><strong>We are</strong></h2>
+        </header>
+        <p>Melko group and friends.</p>
+        <footer>
+          <ul class="buttons">
+            <li><a href="#" class="button">Who's who</a></li>
+          </ul>
+        </footer>
+
+      </div>
+      <div class="4u skel-cell-important"> <!-- PHOTOS -->
+        <ul class="thumbnail-photos">
+          <div class="crop"><img src="images/anna.jpg" alt="" /></div>
+          <div class="crop"><img src="images/matt.png" alt="" /></div>
+          <div class="crop"><img src="images/matt.png" alt="" /></div>
+          <div class="crop"><img src="images/matt.png" alt="" /></div>
+          <div class="crop"><img src="images/matt.png" alt="" /></div>
+          <div class="crop"><img src="images/matt.png" alt="" /></div>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Two: NEWS  -->
+  <header class="special container">
+    <span class="icon far fa-newspaper"></span>
+    <h2><strong>NEWS</strong></h2>
+  </header>
+
+<section class="wrapper style4 container special-alt">
     <div >
-            <div class="content">
+          <div class="content">
             {% for article in articles %}
               {% if article.category|string() == "News"|string() %}
                 <div class="newscontainer">
                     <div class="calender">
+                      <i class="fas fa-bullhorn fa-2x"></i>
+                      <!--
                         <div class="date">
                             <div class="month"><strong>{{ article.date | strftime('%b') }}</strong></div>
                             <div class="day">{{ article.date | strftime('%d') }}</div>
                         </div> 
+                      -->
                     </div>
-                    <!-- <a href="#" class="image feature"><img src="images/pic03.jpg" alt="" /></a> -->
                    <div class="newsteaser">
                       <header>
                           <a href="{{ SITEURL }}/{{ article.url }}"><h3>{{ article.title }}</h3></a>
@@ -138,8 +128,8 @@
 </section>
 
 
-
-<section class="wrapper style1 container special-alt"> <!--  -->
+<!-- NEWS DISPLAY ALTERNATIVE 2
+<section class="wrapper style1 container special-alt">
     <header>
         <h2><strong>News</strong></h2>
     </header>
@@ -151,7 +141,6 @@
                     <div class="calender">
                             {{ article.date | strftime('%d %b') }}
                     </div>
-                    <!-- <a href="#" class="image feature"><img src="images/pic03.jpg" alt="" /></a> -->
                    <div class="newsteaser">
                       <header>
                           <a href="{{ SITEURL }}/{{ article.url }}"><h3>{{ article.title }}</h3></a>
@@ -164,9 +153,10 @@
             </div>
         </div>
 </section>
+-->
 
-
-  <section class="wrapper style2 container special-alt"> <!--  -->
+<!-- NEWS DISPLAY ALTERNATIVE 3
+  <section class="wrapper style2 container special-alt">
     <header>
         <h2><strong>News</strong></h2>
     </header>
@@ -175,7 +165,6 @@
             {% for article in articles %}
               {% if article.category|string() == "News"|string() %}
                 <section>
-                    <!-- <a href="#" class="image feature"><img src="images/pic03.jpg" alt="" /></a> -->
                     <header>
                         <a href="{{ SITEURL }}/{{ article.url }}"><h3>{{ article.title }}</h3></a>
                     </header>
@@ -187,10 +176,15 @@
             </div>
         </div>
 </section>
+-->
 
 
+  <!-- Three: BLOG ARTICLES -->
+  <header class="special container">
+    <span class="icon fas fa-file-alt"></span>
+    <h2>BLOG ARTICLES</h2>
+  </header>
 
-  <!-- Two -->
   <section class="wrapper style1 container special">
     <div class="row">
 
@@ -221,7 +215,5 @@
 
 </article>
 
-{% include 'coolstuff.html' %}
-{% include 'cta.html' %}
 
 {% endblock content %}

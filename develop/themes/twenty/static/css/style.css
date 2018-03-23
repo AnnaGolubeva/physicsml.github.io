@@ -155,7 +155,7 @@
 			left: 0;
 			position: absolute;
 			text-align: center;
-			top: 1em;
+			top: 0.3em;
 			width: 100%;
 		}
 
@@ -282,7 +282,7 @@
 		.icon:before {
 			-moz-osx-font-smoothing: grayscale;
 			-webkit-font-smoothing: antialiased;
-			font-family: FontAwesome;
+			font-family: Font Awesome\ 5 Free;
 			font-style: normal;
 			font-weight: normal;
 		}
@@ -640,7 +640,7 @@
 				#header nav ul li.submenu > a:before {
 					-moz-osx-font-smoothing: grayscale;
 					-webkit-font-smoothing: antialiased;
-					font-family: FontAwesome;
+					font-family: Font Awesome\ 5 Free;
 					font-style: normal;
 					font-weight: normal;
 				}
@@ -899,7 +899,7 @@
 		#topButton .toggle:before {
 			-moz-osx-font-smoothing: grayscale;
 			-webkit-font-smoothing: antialiased;
-			font-family: FontAwesome;
+			font-family: Font Awesome\ 5 Free;
 			font-style: normal;
 			font-weight: normal;
 		}
@@ -942,7 +942,7 @@
 		#sideButton .toggle:before {
 			-moz-osx-font-smoothing: grayscale;
 			-webkit-font-smoothing: antialiased;
-			font-family: FontAwesome;
+			font-family: Font Awesome\ 5 Free;
 			font-style: normal;
 			font-weight: normal;
 		}

@@ -1,7 +1,6 @@
 Title: Intro to Machine Learning Talk at KITP
 Date: 2016-11-09 20:00
 Tags: quantum mechanics, neural nets, machine learning
-Authors: Miles Stoudenmire
 Summary: Roger Melko presented an introduction to machine learning for a physics audience at the KITP in Santa Barbara.
 
 With the huge growth of interest in machine learning in the private sector and across 
