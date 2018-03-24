@@ -117,19 +117,21 @@ suitable for the tensor network approximations used in physics,
 recall that combining independent quantum systems corresponds to taking a tensor
 product of their state spaces. For a feature map mimicking this rule,
 first map each component $x_j$ of the input vector $\mathbf{x}$ into a
-small d-dimensional vector via a *local feature map* $\phi(x\_j)$. Then
+small d-dimensional vector via a *local feature map* $\phi(x_j)$. Then
 combine these local feature vectors using a tensor product:
 $$
-\Phi^{s\_1 s\_2 \cdots s\_N}(\mathbf{x}) = \phi^{s\_1}(x\_1) \otimes \phi^{s\_2}(x\_2) \otimes \cdots \otimes \phi^{s\_N}(x\_N)
+\Phi^{s_1 s_2 \cdots s_N}(\mathbf{x}) = \phi^{s_1}(x_1) \otimes \phi^{s_2}(x_2) \otimes \cdots \otimes \phi^{s_N}(x_N)
 $$
-The result is a $d^N$ dimensional feature vector. However, it has the structure
+The result is a $d^N$-dimensional feature vector. However, it has the structure
 of a product-state wavefunction (or rank-1 tensor in applied math parlance), making it
 easy to store and manipulate.
 
 <figure>
-<img style="width:250px;" src="/images/phi.png"/>
+<img src="/images/phi.png" style="float: center; width: 250px; margin-right: 1%; margin-bottom: 0.0em;"/>
+<p style="clear: both;">
 <figcaption>Feature map as a tensor product of local feature maps</figcaption>
 </figure>
+<br/>
 
 With the above construction, $W$ also has $d^N$ components, and has the structure of an
 $N^\text{th}$ order tensor (N indices of size d). This is an object in the same
@@ -139,19 +141,22 @@ compressible into tensor networks, the vast majority cannot be compressed at all
 Do weights of machine learning models live in the 
 same nicely compressible part of state space as tensor networks?
 
+
 <figure>
-<img style="width:350px;" src="/images/decision.png"/>
+<img src="/images/decision.png" style="float: center; width: 350px; margin-right: 1%; margin-bottom: 0.0em;" />
+<p style="clear: both;">
 <figcaption>Decision function with a tensor-product feature map (top) and MPS approximation of weights (bottom)</figcaption>
 </figure>
+<br/>
 
-In lieu of a general answer, we did an experiment. Our work ([Stoudenmire,2016][19])
+In lieu of a general answer, we did an experiment. Our work ([Stoudenmire, 2016][19])
 considered grayscale image data of handwritten digits (the MNIST data set). Taking an
 ad-hoc local feature map which maps grayscale pixels into two-component vectors mimicking
 S=1/2 spins, we trained a model to distinguish the digits 0,1,2,...,9. We approximated
 the weight tensor $W$ as an MPS and optimized it by minimizing a squared-error cost
 function. The results were surprisingly good: for a very modest
 size of 100 by 100 matrices in the MPS, we obtained over 99% classification accuracy on the
-training and test data sets. The experiments of [Novikov,2016][18] considered another
+training and test data sets. The experiments of [Novikov, 2016][18] considered another
 standard data set and synthetic, highly correlated data and found similarly good results.
 
 ## A Linear Path Ahead
@@ -202,9 +207,6 @@ deep theoretical underpinnings of kernel learning the future could be bright.
 
 
 <br/>
-****
-<br/>
-
 
 <!--
 
@@ -268,21 +270,21 @@ There is no way to directly manipulate a vector that large once $N$ gets bigger 
 Tensor networks as a computational tool originated in the field of quantum physics
 (not to be confused with [neural tensor networks][23]). Early on
 they were considered for describing the mathematical structure of exotic states of quantum
-spin models, such as the [AKLT chain][2] ([Accardi,1981][3]; [Lange,1994][4]).
+spin models, such as the [AKLT chain][2] ([Accardi, 1981][3]; [Lange, 1994][4]).
 
 The tensor network known as the matrix product state (MPS) came into prominence with the 
-development of the DMRG algorithm ([White,1992][5]; [Schollwoeck,2011][24]), later shown to be a particularly efficient
-algorithm for optimizing MPS to approximate ground states of quantum systems ([Ostlund,1995][6]).
+development of the DMRG algorithm ([White, 1992][5]; [Schollwoeck, 2011][24]), later shown to be a particularly efficient
+algorithm for optimizing MPS to approximate ground states of quantum systems ([Ostlund, 1995][6]).
 
 Since then, tensor networks have been influential in many areas of physics such as quantum chemistry
-([Chan,2011][7]), condensed matter physics ([Bridgeman,2016][8]), and even in quantum gravity, where
+([Chan, 2011][7]), condensed matter physics ([Bridgeman, 2016][8]), and even in quantum gravity, where
 tensor networks have been proposed as a model of how gravity could emerge from quantum mechanics
-([Swingle,2012][9]; [Quanta Magazine,2015][10]). Some key developments in tensor network technology
-were the proposal of the PEPS network for two-dimensional quantum systems ([Verstraete,2004][11])
-and the MERA network for critical systems ([Vidal,2007][12]).
+([Swingle, 2012][9]; [Quanta Magazine, 2015][10]). Some key developments in tensor network technology
+were the proposal of the PEPS network for two-dimensional quantum systems ([Verstraete, 2004][11])
+and the MERA network for critical systems ([Vidal, 2007][12]).
 
 More recently, there has been growing interest in tensor networks within the applied mathematics community 
-following the proposal of the hierarchical Tucker ([Hackbush,2009][13]) and tensor train ([Oseledets,2011][14]) 
+following the proposal of the hierarchical Tucker ([Hackbush, 2009][13]) and tensor train ([Oseledets, 2011][14]) 
 decompositions (respectively known in the physics literature as the tree tensor network and MPS decompositions).
 
 

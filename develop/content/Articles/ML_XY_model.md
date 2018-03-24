@@ -22,35 +22,36 @@ To get some intuition, try placing a pen on the bottom-left spin of any circle i
 
 <figure>
     <img
-    style="float: center; width: 100%; margin-right: 1%; margin-bottom: 0.0em;"
-    src="images/windings.png"
+    style="float: center; width: 90%; margin-right: 1%; margin-bottom: 0.0em;"
+    src="/images/windings.png"
     />
+    <p style="clear: both;">
     <figcaption>
-    <b>Figure 1.</b> Illustration of how the winding number, $w$, counts the number of times the spins rotate around the origin. In (a), the spins are mostly aligned so they have zero winding number, whereas in (b) the spins form a vortex because they complete one clockwise rotation while transversing the circular path. The antivortex in (c) completes one counterclockwise rotation along the path, and the higher-order vortex in (d) completes two full clockwise rotations.
+    <b>Figure 1.</b> Illustration of how the winding number counts the number of times the spins rotate around the origin. In (a), the spins are mostly aligned so they have zero winding number, whereas in (b) the spins form a vortex because they complete one clockwise rotation while transversing the circular path. The antivortex in (c) completes one counterclockwise rotation along the path, and the higher-order vortex in (d) completes two full clockwise rotations.
     </figcaption>
 </figure>
+<br/>
 
+The simplest physical model with vortices is the two-dimensional classical XY model which consists of unit spins that can point in any direction, $\theta_i\in[0,2\pi)$, and interact only with their nearest neighbors. At low temperatures, the spins generally align like an Ising ferromagnet. However, because the spins take on continuous values $\theta$, spin-wave excitations become very strong and prevent any true [long-range order](https://en.wikipedia.org/wiki/Mermin%E2%80%93Wagner_theorem). Unlike the ferromagnet, in this regime, the correlations between spins decay polynomially with their separation. This is called a quasi-long-range ordered phase.
 
-The simplest physical model with vortices is the two-dimensional classical XY model which consists of unit spins that can point in any direction, $\theta_i\in[0,2\pi)$, and interact only with their nearest neighbors. At low temperatures, the spins generally align like an Ising ferromagnet, however, because the spins take on continuous values $\theta$, spin-wave excitations become very strong and prevent any true [long-range order](https://en.wikipedia.org/wiki/Mermin%E2%80%93Wagner_theorem). Unlike the ferromagnet, in this regime, the correlations between spins decay polynomially with their separation. This is called a quasi-long-range ordered phase.
-
-At the temperature $T_{\text{KT}} \approx 0.8935$ [1], the XY model exhibits a Kosterlitz–Thouless transition. In contrast with conventional phase transitions, the KT transition displays no discontinuity in any observable such as the magnetization or energy. Instead, the transition is caused by the unbinding of vortex-antivortex pairs above $T_{\text{KT}}$. Below this temperature, it takes infinite energy to excite a single vortex, however, thermal fluctuations can create vortex-antivortex *pairs* so long as they remain bound together (Figure 2).  Above $T_{\text{KT}}$, it is entropically favorable for vortices to separate. This balancing act between energy and entropy is responsible for the vortex-unbinding transition.
+At the temperature $T_{\text{KT}} \approx 0.8935$ [1], the XY model exhibits a Kosterlitz–Thouless transition. In contrast with conventional phase transitions, the KT transition displays no discontinuity in any observable such as the magnetization or energy. Instead, the transition is caused by the unbinding of vortex-antivortex pairs above $T_{\text{KT}}$. Below this temperature, it takes infinite energy to excite a single vortex; however, thermal fluctuations can create vortex-antivortex *pairs* so long as they remain bound together (Figure 2).  Above $T_{\text{KT}}$, it is entropically favorable for vortices to separate. This balancing act between energy and entropy is responsible for the vortex-unbinding transition.
 
 
 <figure>
     <img
     style="float: center; width: 35%; margin-left: 5%;margin-right: 5%;"
-    src="images/below.png"
+    src="/images/below.png"
     />
     <img
     style="float: center; width: 35%; margin-left: 5%;margin-right: 5%;"
-    alt="Smiley face" border="5"
-    src="images/above.png"
+    src="/images/above.png"
     />
     <p style="clear: both;">
     <figcaption>
-    <b>Figure 2.</b> <b>Left:</b> A configuration of the spins in the XY model for a temperature below $T_{\text{KT}}$. Notice that it contains one vortex-antivortex pair that is bound together. <b>Right:</b> A configuration above $T_{\text{KT}}$ contains one bound pair but also some free vortices.
+    <b>Figure 2.</b> <b>Left:</b> A configuration of the spins in the XY model for a temperature below the KT temperature. Notice that it contains one vortex-antivortex pair that is bound together. <b>Right:</b> A configuration above the KT temperature contains one bound pair but also some free vortices.
     </figcaption>
 </figure>
+<br/>
 
 ## Can neural networks recognize vortices?
 
@@ -67,28 +68,31 @@ The full network architecture is displayed in Figure 3. The motivation for this 
 
 <figure>
     <img
-    style="float: center; width: 100%; margin-right: 1%; margin-bottom: 0.0em;"
-    src="images/CNN.png"
+    style="float: center; width: 90%; margin-right: 1%; margin-bottom: 0.0em;"
+    src="/images/CNN.png"
     />
+    <p style="clear: both;">
     <figcaption>
-    <b>Figure 3.</b> Network architecture for supervised learning of vortices. From the input spins, $\theta_i$, we apply $128$ convolution filters of size $(2×2)$ to capture interactions between spins. After applying ReLu activation functions, the next layer is $64$ filters of size $(1×1)$, again with ReLu activations. The network outputs three binary channels with a softmax activation function to ensure only one label is associated to each square in the lattice. Each channels represents ones of the possible values of the winding number.
+    <b>Figure 3.</b> Network architecture for supervised learning of vortices. On the input spins we apply 128 convolution filters of size 2×2 to capture interactions between spins. After applying ReLu activation functions, the next layer is 64 filters of size 1×1, again with ReLu activations. The network outputs three binary channels with a softmax activation function to ensure only one label is associated to each square in the lattice. Each channels represents ones of the possible values of the winding number.
     </figcaption>
 </figure>
+<br/>
 
-In Figure 3, the loss function during training is shown for some different lattice sizes. Each network was trained using the Adam optimizer and early stopping with a patience of ten epochs to prevent overfitting. It turns out that this network architecture readily achieves over $99\%$ accuracy in identifying vortices!
+In Figure 3, the loss function during training is shown for different lattice sizes. Each network was trained using the Adam optimizer and early stopping with a patience of ten epochs to prevent overfitting. It turns out that this network architecture readily achieves over $99\%$ accuracy in identifying vortices!
 
-Adding $L_2$ regularization had no effect on the performance of the network, however, ReLu unit were substantially better than tanh or sigmoid functions. Likewise, a single-layer fully-connected network did not perform well, yet convolutions layers worked perfectly. Increasing the number of layers or neurons resulted in faster convergence.
+Adding $L_2$ regularization had no effect on the performance of the network; however, ReLu units were substantially better than tanh or sigmoid functions. Likewise, a single-layer fully-connected network did not perform well, yet convolutions layers worked perfectly. Increasing the number of layers or neurons resulted in faster convergence.
 
 <figure>
     <img
     style="float: center; width: 70%; margin-left: 10%; margin-bottom: 0.0em;"
-    src="images/loss.png"
+    src="/images/loss.png"
     />
+    <p style="clear: both;">
     <figcaption>
-    <b>Figure 4.</b> Training and cross-validation loss function for system sizes from $8\times 8$ up to $32\times 32$. Training is stopped once the loss on the cross-validation set fails to decrease after ten epochs.
+    <b>Figure 4.</b> Training and cross-validation loss function for system sizes from 8×8 up to 32×32. Training is stopped once the loss on the cross-validation set fails to decrease after ten epochs.
     </figcaption>
 </figure>
-
+<br/>
 
 
 Extending this to the quantum realm has already been done for 1D topological band insulators [3]. In this case, the label is not an array, but rather a single number (the global winding number), which describes the topological sector of a Hamiltonian. With a network similar to Figure 3., the authors achieve very high accuracy and can even detect higher-order winding numbers not included in the training data.

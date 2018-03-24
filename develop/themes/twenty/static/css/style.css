@@ -46,6 +46,17 @@
 		border-bottom: dotted 1px;
 	}
 
+	a.special {
+		color:#7c8081;
+		font-family: 'Lato', sans-serif;
+		font-size: 13pt;
+		font-weight: 350;
+		letter-spacing: 0.01em;
+		text-transform: uppercase;
+		text-decoration: none;
+		border-bottom: none;
+	}
+
 		a:hover {
 			border-bottom-color: transparent;
 		}
@@ -171,6 +182,59 @@
 	footer.major {
 		padding-top: 3em;
 	}
+
+
+
+/* News and About containers on the index page */
+    .content .news {
+       background-color: white;
+       border-radius: 15px;
+    }
+    .newscontainer {
+        display: flex;
+        flex-direction: row;
+    }
+    .newscontainer .calender{
+        width: 80px;
+        flex-shrink: 0;
+    }
+    .newscontainer .calender .date{
+        width: 80px;
+        height: 80px;
+        text-align: center;
+        border: 2px solid grey;
+        margin-top:9px;
+    }
+    .newscontainer .newsteaser{
+        flex-grow: 1;
+    }
+    .newscontainer .newsteaser h3{
+        flex-grow: 1;
+        margin-bottom: 0.15em;
+    }
+    h3.newsteaser:before {
+        font-family: Font Awesome\ 5 Free;
+        content: "\f0a1";  /* Some fancy character */
+        color: #c83f3f;
+    }
+    ul.thumbnail-photos {
+      cursor: default;
+      margin: -0.75em 0 0 0;
+      overflow: hidden;
+      position: relative;
+    }
+    ul.thumbnail-photos .crop{
+        width: 120px;
+        height: 120px;
+        overflow: hidden;
+        border-radius: 60px;
+        float: left;
+        margin: 16px;
+    }
+    ul.thumbnail-photos .crop img{
+        width: 120px;
+    }
+
 
 /* Form */
 

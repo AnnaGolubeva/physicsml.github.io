@@ -49,7 +49,7 @@ POST_LIMIT = 3
 NEWEST_FIRST_ARCHIVES = True
 
 # Uncomment following line if you want document-relative URLs when developing
-#RELATIVE_URLS = True
+RELATIVE_URLS = True
 
 MENUITEMS = [("News", "news.html"), ("Blog", "blog.html"), ("Papers", "papers.html")]
 #TEMPLATE_PAGES = {'/themes/twenty/templates/page.html' : 'papers.html' }
@@ -57,14 +57,14 @@ MENUITEMS = [("News", "news.html"), ("Blog", "blog.html"), ("Papers", "papers.ht
 # Formatting for urls
 ARTICLE_PATHS = ['Articles', 'News']
 ARTICLE_URL = "{slug}"
-ARTICLE_SAVE_AS = "Articles/{slug}.html"
+ARTICLE_SAVE_AS = "blog/{slug}.html"
 
 #ARCHIVES_URL = "blog"
 #ARCHIVES_SAVE_AS = "blog/index.html"
 
 PAGE_PATHS = ['Pages']
 PAGE_URL = '{slug}'
-PAGE_SAVE_AS = '{slug}.html'
+PAGE_SAVE_AS = 'pages/{slug}.html'
 
 #CATEGORY_URL = "category/{slug}/"
 #CATEGORY_SAVE_AS = "category/{slug}/index.html"
