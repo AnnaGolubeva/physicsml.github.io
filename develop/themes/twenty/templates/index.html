@@ -136,7 +136,8 @@
   <section class="wrapper style1 container special">
     <div class="row">
 
-      {% for article in articles_page.object_list %}
+        {% for article in articles %}
+        {% if article.category|string() == "Articles"|string() %}
           <div class="4u">
 
             <section>
@@ -152,10 +153,26 @@
               </footer>
             </section>
           </div>
+          {% endif %}
       {% endfor %}
     </div> <!-- /.row -->
 
-    {% include 'pagination.html' %}
+
+    <div class="row ">
+
+        <div class="4u pagination-right">
+            <section>
+                <header>
+                
+                    <a href="{{ SITEURL }}/category/articles.html">Older posts&nbsp;&rarr;</a>
+                
+                </header>
+            </section>
+        </div>
+    
+    </div>
+
+    <!-- {% include 'pagination.html' %} -->
 
   </section> <!-- /section -->
 
