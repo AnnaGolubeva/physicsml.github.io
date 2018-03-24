@@ -50,8 +50,13 @@
 <section class="wrapper style4 container special-alt">
     <div >
           <div class="content">
-            {% for article in articles %}
-              {% if article.category|string() == "News"|string() %}
+          
+              {% for cat, arts in categories %}
+              {% if cat|string() == "News"|string() %}
+              {% for article in arts%}
+              {% if loop.index < 4 %}
+
+
                 <div class="newscontainer">
                     <div class="calender">
                       <i class="fas fa-bullhorn fa-2x"></i>
@@ -69,7 +74,10 @@
                       <p>{{ article.summary |striptags }}</p>
                    </div>
                 </div>
-                {% endif %}
+
+            {% endif %}
+            {% endfor %}
+            {% endif %}
             {% endfor %}
             </div>
         </div>
@@ -136,8 +144,13 @@
   <section class="wrapper style1 container special">
     <div class="row">
 
-        {% for article in articles %}
-        {% if article.category|string() == "Articles"|string() %}
+    
+
+        {% for cat, arts in categories %}
+        {% if cat|string() == "Articles"|string() %}
+        {% for article in arts%}
+        {% if loop.index < 4 %}
+
           <div class="4u">
 
             <section>
@@ -153,8 +166,11 @@
               </footer>
             </section>
           </div>
-          {% endif %}
-      {% endfor %}
+       
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+        {% endfor %}
     </div> <!-- /.row -->
 
 
